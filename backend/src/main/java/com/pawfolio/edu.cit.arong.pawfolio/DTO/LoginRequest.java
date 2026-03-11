@@ -1,4 +1,4 @@
-package com.pawfolio.pawfolio_backend.DTO;
+package edu.cit.arong.pawfolio.DTO;
 
 public class LoginRequest {
 

@@ -46,6 +46,11 @@ export default function Login(){
         }
     }
 
+    // GOOGLE LOGIN
+    const handleGoogleLogin = () => {
+        window.location.href = "http://localhost:8080/oauth2/authorization/google"
+    }
+
     return(
 
         <div className="auth-container">
@@ -99,6 +104,35 @@ export default function Login(){
                     <button className="btn-primary">
                         Login
                     </button>
+
+                    <div style={{margin:"15px 0", textAlign:"center"}}>
+                        <span style={{fontSize:"12px", color:"#999"}}>OR</span>
+                    </div>
+
+                    <button
+    type="button"
+    onClick={handleGoogleLogin}
+    style={{
+        width:"100%",
+        padding:"10px",
+        borderRadius:"6px",
+        border:"1px solid #D1D5DB",
+        background:"#FFFFFF",
+        display:"flex",
+        alignItems:"center",
+        justifyContent:"center",
+        gap:"10px",
+        fontWeight:"500",
+        cursor:"pointer"
+    }}
+>
+    <img
+        src="https://developers.google.com/identity/images/g-logo.png"
+        alt="Google"
+        style={{width:"18px", height:"18px"}}
+    />
+    Login with Google
+</button>
 
                     <p className="footer-text">
                         Don't have an account? 

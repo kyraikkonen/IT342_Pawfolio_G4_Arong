@@ -1,4 +1,4 @@
-package com.pawfolio.pawfolio_backend;
+package edu.cit.arong.pawfolio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

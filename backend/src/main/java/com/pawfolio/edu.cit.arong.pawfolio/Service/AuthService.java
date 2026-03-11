@@ -1,7 +1,7 @@
-package com.pawfolio.pawfolio_backend.Service;
+package edu.cit.arong.pawfolio.Service;
 
-import com.pawfolio.pawfolio_backend.Model.User;
-import com.pawfolio.pawfolio_backend.Repository.UserRepository;
+import edu.cit.arong.pawfolio.Model.User;
+import edu.cit.arong.pawfolio.Repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -30,8 +30,11 @@ public class AuthService {
 
     public User login(String email, String password){
 
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+        User user = userRepository.findByEmail(email);
+
+        if(user == null){
+            throw new RuntimeException("User not found");
+        }
 
         if(!passwordEncoder.matches(password, user.getPassword())){
             throw new RuntimeException("Invalid password");

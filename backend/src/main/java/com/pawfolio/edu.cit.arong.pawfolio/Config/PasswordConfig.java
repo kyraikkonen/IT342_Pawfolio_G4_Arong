@@ -1,4 +1,4 @@
-package com.pawfolio.pawfolio_backend.Config;
+package edu.cit.arong.pawfolio.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

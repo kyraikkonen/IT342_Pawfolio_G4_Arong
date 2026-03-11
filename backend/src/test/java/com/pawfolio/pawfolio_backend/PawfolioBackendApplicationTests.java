@@ -1,4 +1,4 @@
-package com.pawfolio.pawfolio_backend;
+package edu.cit.arong.pawfolio;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

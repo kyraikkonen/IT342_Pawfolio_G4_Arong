@@ -1,4 +1,4 @@
-package com.pawfolio.pawfolio_backend.Model;
+package edu.cit.arong.pawfolio.Model;
 
 import javax.persistence.*;
 

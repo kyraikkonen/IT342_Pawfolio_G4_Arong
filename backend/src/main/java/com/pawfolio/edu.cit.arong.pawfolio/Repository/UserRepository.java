@@ -1,11 +1,11 @@
-package com.pawfolio.pawfolio_backend.Repository;
+package edu.cit.arong.pawfolio.Repository;
 
-import com.pawfolio.pawfolio_backend.Model.User;
+import edu.cit.arong.pawfolio.Model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    Optional<User> findByEmail(String email);
+    User findByEmail(String email);
 }

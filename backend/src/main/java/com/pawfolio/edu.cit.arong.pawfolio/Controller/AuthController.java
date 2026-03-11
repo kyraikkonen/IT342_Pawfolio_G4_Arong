@@ -1,9 +1,9 @@
-package com.pawfolio.pawfolio_backend.Controller;
+package edu.cit.arong.pawfolio.Controller;
 
-import com.pawfolio.pawfolio_backend.DTO.LoginRequest;
-import com.pawfolio.pawfolio_backend.DTO.RegisterRequest;
-import com.pawfolio.pawfolio_backend.Model.User;
-import com.pawfolio.pawfolio_backend.Service.AuthService;
+import edu.cit.arong.pawfolio.DTO.LoginRequest;
+import edu.cit.arong.pawfolio.DTO.RegisterRequest;
+import edu.cit.arong.pawfolio.Model.User;
+import edu.cit.arong.pawfolio.Service.AuthService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
