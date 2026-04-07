@@ -20,8 +20,10 @@ public class OAuthStrategy implements AuthStrategy {
 
         Map<String, Object> attributes = (Map<String, Object>) request;
 
-        String email = (String) attributes.get("email");
-        String name = (String) attributes.get("name");
+        OAuthUserAdapter userAdapter = new GoogleUserAdapter(attributes);
+
+        String email = userAdapter.getEmail();
+        String name = userAdapter.getName();
 
         User user = userRepository.findByEmail(email);
 
