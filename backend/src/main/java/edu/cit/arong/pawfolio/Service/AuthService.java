@@ -10,10 +10,14 @@ public class AuthService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final AuthStrategyFactory factory;
 
-    public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder){
+    public AuthService(UserRepository userRepository,
+                       PasswordEncoder passwordEncoder,
+                       AuthStrategyFactory factory){
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.factory = factory;
     }
 
     public User register(String name, String email, String password){
@@ -28,18 +32,8 @@ public class AuthService {
         return userRepository.save(user);
     }
 
-    public User login(String email, String password){
-
-        User user = userRepository.findByEmail(email);
-
-        if(user == null){
-            throw new RuntimeException("User not found");
-        }
-
-        if(!passwordEncoder.matches(password, user.getPassword())){
-            throw new RuntimeException("Invalid password");
-        }
-
-        return user;
+    public User login(String type, Object request){
+        AuthStrategy strategy = factory.getStrategy(type);
+        return strategy.authenticate(request);
     }
 }

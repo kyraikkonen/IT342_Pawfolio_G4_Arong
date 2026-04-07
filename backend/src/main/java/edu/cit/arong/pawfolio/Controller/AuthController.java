@@ -14,6 +14,7 @@ public class AuthController {
     private final AuthService authService;
 
     public AuthController(AuthService authService){
+
         this.authService = authService;
     }
 
@@ -29,10 +30,6 @@ public class AuthController {
 
     @PostMapping("/login")
     public User login(@RequestBody LoginRequest request){
-
-        return authService.login(
-                request.email,
-                request.password
-        );
+        return authService.login("EMAIL", request);
     }
 }
