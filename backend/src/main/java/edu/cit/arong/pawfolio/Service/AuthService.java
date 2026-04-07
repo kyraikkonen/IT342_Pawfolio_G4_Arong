@@ -11,13 +11,22 @@ public class AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final AuthStrategyFactory factory;
+    private final AuthEventManager eventManager;
+    private final AuthLogger authLogger;
 
     public AuthService(UserRepository userRepository,
                        PasswordEncoder passwordEncoder,
-                       AuthStrategyFactory factory){
+                       AuthStrategyFactory factory,
+                       AuthEventManager eventManager,
+                       AuthLogger authLogger){
+
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.factory = factory;
+        this.eventManager = eventManager;
+        this.authLogger = authLogger;
+
+        this.eventManager.addObserver(authLogger);
     }
 
     public User register(String name, String email, String password){
@@ -28,12 +37,19 @@ public class AuthService {
         user.setName(name);
         user.setEmail(email);
         user.setPassword(hashedPassword);
+        User savedUser = userRepository.save(user);
 
-        return userRepository.save(user);
+        eventManager.notifyObservers("REGISTER", savedUser);
+
+        return savedUser;
     }
 
     public User login(String type, Object request){
         AuthStrategy strategy = factory.getStrategy(type);
-        return strategy.authenticate(request);
+        User user = strategy.authenticate(request);
+
+        eventManager.notifyObservers("LOGIN", user);
+
+        return user;
     }
 }
