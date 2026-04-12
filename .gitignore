@@ -1,0 +1,12 @@
+# Android / IntelliJ
+.idea/
+.gradle/
+build/
+*/build/
+local.properties
+
+# APK files
+*.apk
+
+# OS
+.DS_Store
