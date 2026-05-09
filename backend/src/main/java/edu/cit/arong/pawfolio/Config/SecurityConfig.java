@@ -25,9 +25,13 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .antMatchers(
                         "/api/auth/**",
+                        "/api/pets/**",
+                        "/api/records/**",
+                        "/api/users/**",
                         "/oauth2/**",
                         "/login/**"
                 ).permitAll()
+
                 .anyRequest().authenticated()
                 .and()
                 .oauth2Login()

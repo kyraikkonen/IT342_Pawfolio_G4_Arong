@@ -1,122 +1,178 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useState } from "react";
 
-export default function Register(){
+import { useNavigate } from "react-router-dom";
 
-    const navigate = useNavigate()
+import { registerUser }
+from "../services/authService";
 
-    const [name,setName] = useState("")
-    const [email,setEmail] = useState("")
-    const [password,setPassword] = useState("")
-    const [error,setError] = useState("")
+export default function Register() {
 
-    const handleRegister = async (e) => {
+  const navigate = useNavigate();
 
-        e.preventDefault()
+  const [name, setName] =
+    useState("");
 
-        setError("")
+  const [email, setEmail] =
+    useState("");
 
-        try{
+  const [password, setPassword] =
+    useState("");
 
-            const response = await fetch("http://localhost:8080/api/auth/register",{
-                method:"POST",
-                headers:{
-                    "Content-Type":"application/json"
-                },
-                body:JSON.stringify({
-                    name:name,
-                    email:email,
-                    password:password
-                })
-            })
+  const [error, setError] =
+    useState("");
 
-            if(!response.ok){
-                throw new Error("Registration failed")
-            }
+  const handleRegister =
+    async (e) => {
 
-            // redirect to login again pag done na register
-            navigate("/")
+      e.preventDefault();
 
-        }catch(err){
+      setError("");
 
-            setError("Unable to register. Try again.")
+      try {
 
-        }
-    }
+        const data =
+          await registerUser({
+            name,
+            email,
+            password
+          });
 
-    return(
+        localStorage.setItem(
+          "user",
+          JSON.stringify(data)
+        );
 
-        <div className="auth-container">
+        navigate("/dashboard");
 
-            <div className="auth-left">
+      } catch (err) {
 
-                <div className="brand">Pawfolio</div>
+        setError(
+          "Registration failed"
+        );
 
-                <h2>Create your Pawfolio account</h2>
+      }
+    };
 
-                <p>Start managing your pets' health records.</p>
+  return (
 
-            </div>
+    <div className="auth-container">
 
+      <div className="auth-left">
 
-            <div className="auth-right">
-
-                <form className="form-card" onSubmit={handleRegister}>
-
-                    <h2>Register</h2>
-                    <p className="subtitle">Create your account</p>
-
-                    {error && <p style={{color:"#EF4444"}}>{error}</p>}
-
-                    <div className="input-group">
-                        <label>Name</label>
-                        <input
-                        type="text"
-                        value={name}
-                        onChange={(e)=>setName(e.target.value)}
-                        required
-                        />
-                    </div>
-
-                    <div className="input-group">
-                        <label>Email</label>
-                        <input
-                        type="email"
-                        value={email}
-                        onChange={(e)=>setEmail(e.target.value)}
-                        required
-                        />
-                    </div>
-
-                    <div className="input-group">
-                        <label>Password</label>
-                        <input
-                        type="password"
-                        value={password}
-                        onChange={(e)=>setPassword(e.target.value)}
-                        required
-                        />
-                    </div>
-
-                    <button className="btn-primary">
-                        Register
-                    </button>
-
-                    <p className="footer-text">
-                        Already have an account? 
-                        <span 
-                        className="link"
-                        style={{cursor:"pointer"}}
-                        onClick={()=>navigate("/")}>
-                        {" "}Login
-                        </span>
-                    </p>
-
-                </form>
-
-            </div>
-
+        <div className="brand">
+          Pawfolio
         </div>
 
-    )
+        <h2>
+          Create your Pawfolio account
+        </h2>
+
+        <p>
+          Manage all your pets in one place.
+        </p>
+
+      </div>
+
+      <div className="auth-right">
+
+        <form
+          className="form-card"
+          onSubmit={handleRegister}
+        >
+
+          <h2>
+            Register
+          </h2>
+
+          <p className="subtitle">
+            Create a new account
+          </p>
+
+          {error && (
+            <p style={{
+              color: "#EF4444"
+            }}>
+              {error}
+            </p>
+          )}
+
+          <div className="input-group">
+
+            <label>
+              Name
+            </label>
+
+            <input
+              type="text"
+              value={name}
+              onChange={(e) =>
+                setName(e.target.value)
+              }
+              required
+            />
+
+          </div>
+
+          <div className="input-group">
+
+            <label>
+              Email
+            </label>
+
+            <input
+              type="email"
+              value={email}
+              onChange={(e) =>
+                setEmail(e.target.value)
+              }
+              required
+            />
+
+          </div>
+
+          <div className="input-group">
+
+            <label>
+              Password
+            </label>
+
+            <input
+              type="password"
+              value={password}
+              onChange={(e) =>
+                setPassword(e.target.value)
+              }
+              required
+            />
+
+          </div>
+
+          <button className="btn-primary">
+            Register
+          </button>
+
+          <p className="footer-text">
+
+            Already have an account?
+
+            <span
+              className="link"
+              style={{
+                cursor: "pointer"
+              }}
+              onClick={() =>
+                navigate("/")
+              }
+            >
+              {" "}Login
+            </span>
+
+          </p>
+
+        </form>
+
+      </div>
+
+    </div>
+  );
 }

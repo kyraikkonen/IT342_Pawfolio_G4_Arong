@@ -1,0 +1,206 @@
+.view-modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+.view-record-modal {
+  width: 720px;
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  background: white;
+
+  border-radius: 30px;
+
+  padding: 36px;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.15);
+}
+
+.view-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin-bottom: 30px;
+}
+
+.record-type-badge {
+  display: inline-block;
+
+  background: #dbeafe;
+  color: #2563eb;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  margin-bottom: 14px;
+}
+
+.view-modal-header h2 {
+  font-size: 42px;
+  line-height: 1.1;
+}
+
+.view-close-btn {
+  width: 46px;
+  height: 46px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #f3f4f6;
+
+  cursor: pointer;
+
+  font-size: 18px;
+}
+
+.view-record-content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 28px;
+}
+
+.view-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 22px;
+}
+
+.view-item {
+  background: #f9fafb;
+
+  border-radius: 18px;
+
+  padding: 18px;
+}
+
+.view-item span {
+  display: block;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #6b7280;
+
+  margin-bottom: 8px;
+}
+
+.view-item p {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.status-completed {
+  color: #16a34a;
+}
+
+.status-upcoming {
+  color: #ea580c;
+}
+
+.view-notes {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.view-notes span {
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #6b7280;
+}
+
+.notes-box {
+  background: #f9fafb;
+
+  border-radius: 18px;
+
+  padding: 22px;
+
+  line-height: 1.7;
+
+  color: #374151;
+}
+
+.view-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 16px;
+
+  margin-top: 36px;
+}
+
+.view-delete-btn {
+  border: none;
+
+  background: #fee2e2;
+  color: #dc2626;
+
+  padding: 14px 22px;
+
+  border-radius: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.view-edit-btn {
+  border: none;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #14b8a6
+  );
+
+  color: white;
+
+  padding: 14px 24px;
+
+  border-radius: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+  .view-record-modal {
+    width: 95%;
+    padding: 24px;
+  }
+
+  .view-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .view-modal-header h2 {
+    font-size: 32px;
+  }
+
+}

@@ -1,0 +1,207 @@
+.records-page {
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* HEADER */
+
+.records-page-header h1 {
+  font-size: 52px;
+  line-height: 1;
+}
+
+.records-subtitle {
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+/* TOOLBAR */
+
+.records-toolbar {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.records-toolbar input,
+.records-toolbar select {
+  border: none;
+
+  background: white;
+
+  padding: 14px 18px;
+
+  border-radius: 14px;
+
+  min-width: 180px;
+
+  font-size: 14px;
+}
+
+/* GRID */
+
+.records-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fill,
+      minmax(320px, 1fr)
+    );
+
+  gap: 20px;
+}
+
+/* CARD */
+
+.health-record-card {
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  transition: 0.2s;
+}
+
+.health-record-card:hover {
+  transform: translateY(-3px);
+}
+
+/* TOP */
+
+.record-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 16px;
+}
+
+.record-card-top h3 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.record-card-top p {
+  color: #6b7280;
+}
+
+/* STATUS */
+
+.record-status {
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.record-status.completed {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.record-status.upcoming {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.record-status.missed {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* DETAILS */
+
+.record-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  color: #4b5563;
+
+  line-height: 1.5;
+}
+
+/* NOTES */
+
+.record-notes {
+  background: #f9fafb;
+
+  border-radius: 16px;
+
+  padding: 16px;
+
+  color: #6b7280;
+
+  line-height: 1.6;
+}
+
+/* ACTIONS */
+
+.record-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.view-btn {
+  border: none;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #14b8a6
+  );
+
+  color: white;
+
+  padding: 12px 18px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+/* EMPTY */
+
+.empty-records-card {
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 50px;
+
+  text-align: center;
+
+  color: #6b7280;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .records-page-header h1 {
+    font-size: 40px;
+  }
+
+  .records-toolbar {
+    flex-direction: column;
+  }
+
+  .records-toolbar input,
+  .records-toolbar select {
+    width: 100%;
+  }
+
+}

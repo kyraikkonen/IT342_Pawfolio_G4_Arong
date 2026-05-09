@@ -35,7 +35,10 @@ export default function Login(){
             const data = await response.json()
 
             // store user temporarily
-            localStorage.setItem("user",JSON.stringify(data))
+            localStorage.setItem(
+  "user",
+  JSON.stringify(data)
+);
 
             navigate("/dashboard")
 
