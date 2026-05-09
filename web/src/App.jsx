@@ -11,25 +11,25 @@ import Register
   from "./features/auth/pages/Register";
 
 import Dashboard
-  from "./pages/Dashboard";
+  from "./features/dashboard/pages/Dashboard";
 
 import BreedExplorer
-  from "./pages/BreedExplorer";
+  from "./features/breeds/pages/BreedExplorer";
 
 import PetDetails
-  from "./pages/PetDetails";
+  from "./features/pets/pages/PetDetails";
 
 import Notifications
-  from "./pages/Notifications";
+  from "./features/notifications/pages/Notifications";
 
 import HealthRecords
-  from "./pages/HealthRecords";
+  from "./features/records/pages/HealthRecords";
 
 import Profile
-  from "./pages/Profile";
+  from "./features/profile/pages/Profile";
 
 import Settings
-  from "./pages/Settings";
+  from "./features/profile/pages/Settings";
 
 function App() {
 
