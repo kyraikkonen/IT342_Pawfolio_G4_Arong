@@ -19,7 +19,7 @@ import {
 import "../styles/BreedExplorer.css";
 
 const DOG_API_KEY =
-  "*";
+  "*"; //api key hidden kay sensitive
 
 const CAT_API_KEY =
   "*";
