@@ -1,6 +1,6 @@
 package edu.cit.arong.pawfolio.Config;
 
-import edu.cit.arong.pawfolio.Service.CustomOAuth2UserService;
+import edu.cit.arong.pawfolio.features.auth.service.CustomOAuth2UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
